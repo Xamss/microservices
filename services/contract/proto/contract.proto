@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package contract;
+
+import "google/protobuf/timestamp.proto";
+
+option go_package = "./;contract";
+
+service ContractService {
+  rpc CreateContract (CreateContractRequest) returns (CreateContractResponse) {}
+  rpc UpdateContract (UpdateContractRequest) returns (UpdateContractResponse) {}
+  rpc DeleteContract (DeleteContractRequest) returns (DeleteContractResponse) {}
+}
+
+message CreateContractRequest {
+  string created_by = 1;
+
+  string title = 2;
+  string description = 3;
+}
+
+message ContractResponse {
+  string id = 1;
+  string title = 2;
+  string description = 3;
+
+  google.protobuf.Timestamp created_at = 4;
+  google.protobuf.Timestamp modified_at = 5;
+
+  uint64 contactCount = 6;
+}
+
+message CreateContractResponse {
+  ContractResponse response = 1;
+}
+
+message UpdateContractRequest {
+  string id = 1;
+  string created_by = 2;
+
+  string title = 3;
+  string description = 4;
+}
+
+message UpdateContractResponse {
+  ContractResponse response = 1;
+}
+
+message DeleteContractRequest {
+  string id = 1;
+  string created_by = 2;
+}
+
+message DeleteContractResponse {
+  ContractResponse response = 1;
+}
