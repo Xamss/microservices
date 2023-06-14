@@ -1,0 +1,1 @@
+This project was done by Batyl Shalkar, Amanzhol Bakhtiyar and Ernar Elemesov
